@@ -1,0 +1,301 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap");
+
+/* Base styles for About page */
+.about-page {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 2.5rem;
+  border-radius: 16px;
+  font-family: "Orbitron", monospace, sans-serif;
+  user-select: none;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* DARK THEME (default) */
+.dark-theme .about-page {
+  background: rgba(10, 14, 28, 0.6);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 0 20px #7c3aed88;
+  color: #cbd5e1;
+}
+
+/* LIGHT THEME overrides */
+.light-theme .about-page {
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 15px #b38fef88;
+  color: #222222;
+}
+
+/* Container for text and gif side by side */
+.about-content {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Text side */
+.about-text {
+  flex: 1 1 380px;
+  min-width: 280px;
+}
+
+/* GIF side */
+.about-gif-container {
+  flex: 1 1 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 260px;
+  animation: floatUpDown 6s ease-in-out infinite;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 25px #8b5cf6cc;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Floating animation for gif */
+@keyframes floatUpDown {
+  0%,
+  100% {
+    transform: translateY(0);
+    filter: drop-shadow(0 0 8px #8b5cf6aa);
+  }
+  50% {
+    transform: translateY(-10px);
+    filter: drop-shadow(0 0 14px #c084fccc);
+  }
+}
+
+.about-gif {
+  max-width: 100%;
+  border-radius: 12px;
+  user-select: none;
+}
+
+/* Title styling */
+/* Dark theme */
+.dark-theme .about-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #8b5cf6;
+  text-shadow: 0 0 8px #8b5cf6cc, 0 0 16px #c084fcaa, 0 0 24px #a78bfaaa;
+  cursor: default;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Light theme */
+.light-theme .about-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #6b46c1; /* Slightly muted purple */
+  text-shadow: none;
+  cursor: default;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+/* Paragraphs */
+/* Dark */
+.dark-theme .about-text p {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  margin-bottom: 1.6rem;
+  color: #94a3b8;
+  text-shadow: 0 0 4px #5b21b6aa;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Light */
+.light-theme .about-text p {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  margin-bottom: 1.6rem;
+  color: #444444;
+  text-shadow: none;
+  transition: color 0.3s ease;
+}
+
+/* Hover/focus */
+.dark-theme .about-text p:hover,
+.dark-theme .about-text p:focus {
+  color: #a78bfa;
+  text-shadow: 0 0 8px #a78bfaaa;
+  outline: none;
+}
+
+.light-theme .about-text p:hover,
+.light-theme .about-text p:focus {
+  color: #7c3aed;
+  outline: none;
+}
+
+/* List */
+/* Dark */
+.dark-theme .features-list {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1.2rem;
+  color: #c7d2fe;
+  user-select: none;
+}
+
+/* Light */
+.light-theme .features-list {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1.2rem;
+  color: #5a4a7e;
+  user-select: none;
+}
+
+.features-list li {
+  margin-bottom: 1rem;
+  position: relative;
+  padding-left: 2rem;
+  cursor: default;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+/* Dark theme bullet */
+.dark-theme .features-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.3rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  background: linear-gradient(135deg, #a78bfa, #8b5cf6);
+  border-radius: 50%;
+  box-shadow: 0 0 10px #a78bfaaa, 0 0 18px #8b5cf6bb;
+}
+
+.dark-theme .features-list li:hover {
+  color: #d8b4fe;
+  text-shadow: 0 0 10px #d8b4fe, 0 0 20px #a78bfa;
+}
+
+/* Light theme bullet */
+.light-theme .features-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.3rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  background: linear-gradient(135deg, #bca9e9, #9f8fd6);
+  border-radius: 50%;
+  box-shadow: 0 0 10px #bca9e9aa, 0 0 18px #9f8fd6bb;
+}
+
+.light-theme .features-list li:hover {
+  color: #9676d6;
+  text-shadow: none;
+}
+
+/* Fade animations (unchanged) */
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-out {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Responsive */
+
+/* Mobile phones up to 480px (iPhone SE, Samsung Galaxy S8+) */
+@media (max-width: 480px) {
+  .about-page {
+    padding: 1rem 1rem 2rem;
+    margin: 1.5rem 1rem;
+  }
+
+  .about-title {
+    font-size: 1.8rem;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+  }
+
+  .about-content {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .about-gif-container {
+    min-width: 100%;
+    max-width: 100%;
+    margin-top: 1.5rem;
+    animation: none; /* Disable floating on small screens */
+    box-shadow: 0 0 18px #8b5cf6cc;
+  }
+}
+
+/* Small to medium phones (iPhone XR, 12 Pro, Galaxy S20 Ultra) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .about-page {
+    padding: 1.5rem 1.5rem 2.5rem;
+    margin: 2rem 1.5rem;
+  }
+
+  .about-title {
+    font-size: 2.2rem;
+  }
+
+  .about-text p {
+    font-size: 1.1rem;
+  }
+
+  .about-content {
+    flex-direction: column;
+    gap: 1.8rem;
+  }
+
+  .about-gif-container {
+    min-width: 100%;
+    max-width: 100%;
+    margin-top: 1.8rem;
+    animation: none;
+    box-shadow: 0 0 22px #8b5cf6cc;
+  }
+}
+
+/* Tablets (iPad Mini and similar) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .about-page {
+    padding: 2rem 2rem 3rem;
+    margin: 2.5rem auto;
+  }
+
+  .about-title {
+    font-size: 2.5rem;
+  }
+
+  .about-text p {
+    font-size: 1.15rem;
+  }
+
+  .about-content {
+    flex-wrap: nowrap;
+    gap: 2rem;
+  }
+
+  .about-gif-container {
+    min-width: 280px;
+    max-width: 320px;
+    box-shadow: 0 0 25px #8b5cf6cc;
+    animation: floatUpDown 6s ease-in-out infinite;
+  }
+}

@@ -1,0 +1,136 @@
+.button,
+.primary-button,
+.secondary-button {
+  background: rgba(30, 30, 60, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 12px;
+  border: 2px solid #00ffe7;
+  color: #00fff7;
+  font-family: "Orbitron", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 0.75rem 2rem;
+  cursor: pointer;
+  box-shadow: 0 0 8px #00e5ffaa, inset 0 0 12px #00fff7aa;
+  transition: background-color 0.35s ease, color 0.35s ease,
+    box-shadow 0.35s ease, transform 0.25s ease;
+  user-select: none;
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  outline-offset: 4px;
+  white-space: nowrap;
+  min-width: 100px;
+  /* Ensure buttons don’t shrink too small on narrow devices */
+}
+
+.button:hover,
+.primary-button:hover,
+.secondary-button:hover {
+  background-color: #00fff7;
+  color: #002022;
+  box-shadow: 0 0 20px #00fff7cc, inset 0 0 18px #00ffffcc;
+  transform: scale(1.07);
+}
+
+.button:focus-visible,
+.primary-button:focus-visible,
+.secondary-button:focus-visible {
+  outline: 3px solid #00ffff;
+  outline-offset: 3px;
+  box-shadow: 0 0 25px #00ffffdd, inset 0 0 22px #00ffffdd;
+}
+
+/* Disabled state */
+.button:disabled,
+.primary-button:disabled,
+.secondary-button:disabled {
+  background-color: rgba(50, 50, 70, 0.5);
+  border-color: #44444488;
+  color: #666666cc;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Active press effect */
+.button:active,
+.primary-button:active,
+.secondary-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 12px #00c6d6cc, inset 0 0 10px #00a9b3cc;
+}
+
+/* Specific button variants */
+
+.primary-button {
+  background-color: rgba(0, 255, 231, 0.8);
+  border-color: #00fff7;
+  color: #002022;
+  font-weight: 800;
+}
+
+.primary-button:hover {
+  background-color: #00fff7;
+  color: #001818;
+  box-shadow: 0 0 30px #00ffffee, inset 0 0 25px #00ffffee;
+}
+
+.secondary-button {
+  background-color: rgba(255, 0, 255, 0.7);
+  border-color: #ff00ffcc;
+  color: #ffeaff;
+}
+
+.secondary-button:hover {
+  background-color: #ff00ff;
+  color: #3a003a;
+  box-shadow: 0 0 25px #ff00ffcc, inset 0 0 20px #ff33ffcc;
+}
+
+/* Responsive adjustments for various devices */
+@media (max-width: 480px) {
+  /* Covers iPhone SE and small Android phones */
+  .button,
+  .primary-button,
+  .secondary-button {
+    font-size: 0.9rem;
+    padding: 0.5rem 1.2rem;
+    min-width: 90px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  /* iPhone XR, 12 Pro, Samsung S8+ */
+  .button,
+  .primary-button,
+  .secondary-button {
+    font-size: 0.95rem;
+    padding: 0.65rem 1.5rem;
+    min-width: 110px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* iPad Mini */
+  .button,
+  .primary-button,
+  .secondary-button {
+    font-size: 1rem;
+    padding: 0.7rem 1.8rem;
+    min-width: 130px;
+  }
+}
+
+@media (min-width: 1025px) {
+  /* Larger phones (e.g. S20 Ultra) and desktops */
+  .button,
+  .primary-button,
+  .secondary-button {
+    font-size: 1.05rem;
+    padding: 0.75rem 2rem;
+    min-width: 140px;
+  }
+}

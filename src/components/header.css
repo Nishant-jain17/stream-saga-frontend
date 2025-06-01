@@ -1,0 +1,168 @@
+/* Header container */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(15, 15, 25, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px 0 rgba(0, 255, 255, 0.2);
+  display: flex;
+  justify-content: space-between; /* keep logo & button at ends */
+  align-items: center;
+  padding: 1rem 2rem;
+  font-family: "Orbitron", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #00fff7;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.15);
+  transition: background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+/* Container around logo for centering */
+.logo-container {
+  flex-grow: 1;
+  flex-shrink: 1;
+  max-width: 60vw;
+  display: flex;
+  justify-content: center;
+  pointer-events: none; /* container itself not clickable */
+}
+
+/* Logo styling */
+.logo {
+  font-size: 1.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #f5faff !important; /* updated color */
+  text-shadow: 0 0 5px #00fff7, 0 0 10px #00fff7, 0 0 20px #00b3b3,
+    0 0 30px #00b3b3;
+  cursor: default;
+  user-select: none;
+  transition: transform 0.3s ease;
+  backdrop-filter: none !important; /* remove blur */
+  -webkit-backdrop-filter: none !important;
+  background: transparent !important;
+  pointer-events: auto; /* enable clicks on logo */
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+/* Link inside logo */
+.logo-link {
+  color: inherit !important;
+  text-decoration: none;
+  background: transparent !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+
+/* Theme toggle button */
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #00fff7;
+  transition: color 0.3s ease;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 6px;
+}
+
+.theme-toggle-btn:hover,
+.theme-toggle-btn:focus {
+  color: #00b3b3;
+  outline: none;
+}
+
+.theme-toggle-btn:focus-visible {
+  outline: 2px solid #00b3b3;
+  outline-offset: 2px;
+}
+
+/* On scroll or focus add glow */
+.header.scrolled,
+.header:focus-within {
+  background: rgba(10, 10, 20, 0.9);
+  box-shadow: 0 0 10px 2px #00fff7;
+}
+
+/* Responsive styles */
+
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem 1.5rem;
+  }
+
+  .logo {
+    font-size: 1.6rem;
+  }
+
+  .theme-toggle-btn {
+    font-size: 1.3rem;
+    min-width: 40px;
+    min-height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 0.75rem 1rem;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+  }
+
+  .theme-toggle-btn {
+    font-size: 1.2rem;
+    min-width: 38px;
+    min-height: 38px;
+    padding: 4px;
+  }
+
+  .logo-container {
+    max-width: 70vw;
+  }
+}
+
+/* For very small devices like iPhone SE portrait */
+@media (max-width: 375px) {
+  .header {
+    padding: 0.6rem 0.8rem;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .theme-toggle-btn {
+    font-size: 1.1rem;
+    min-width: 36px;
+    min-height: 36px;
+    padding: 3px;
+  }
+
+  .logo-container {
+    max-width: 75vw;
+  }
+}
+
+/* Landscape iPads and tablets */
+@media (max-width: 1024px) and (orientation: landscape) {
+  .header {
+    padding: 1rem 2rem;
+  }
+
+  .logo {
+    font-size: 1.7rem;
+  }
+
+  .theme-toggle-btn {
+    font-size: 1.4rem;
+    min-width: 42px;
+    min-height: 42px;
+  }
+}

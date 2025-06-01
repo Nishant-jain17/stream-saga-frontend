@@ -1,0 +1,38 @@
+.genre-selector {
+  margin: 15px 0;
+}
+
+.genre-selector label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.genre-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.genre-btn {
+  padding: 6px 12px;
+  border: 1.5px solid #4caf50;
+  background-color: white;
+  border-radius: 18px;
+  cursor: pointer;
+  color: #4caf50;
+  font-size: 0.9rem;
+  transition: all 0.2s ease-in-out;
+  user-select: none;
+}
+
+.genre-btn:hover {
+  background-color: #4caf50;
+  color: white;
+}
+
+.genre-btn.selected {
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+}

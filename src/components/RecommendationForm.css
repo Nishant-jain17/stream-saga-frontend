@@ -1,0 +1,301 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@400;600&display=swap");
+
+.recommendation-form-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2.5rem 3rem;
+  background: rgba(20, 20, 30, 0.6);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 255, 255, 0.15),
+    inset 0 0 30px rgba(0, 255, 255, 0.1);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1.5px solid rgba(0, 255, 255, 0.3);
+  font-family: "Inter", sans-serif;
+  color: #e0f7fa;
+  transition: background-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-heading {
+  font-family: "Orbitron", sans-serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #000000;
+  text-shadow: 0 0 10px #00e6ff, 0 0 20px #00dfff;
+  margin-bottom: 1.8rem;
+  user-select: none;
+  text-align: center;
+}
+
+.recommendation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.form-section label {
+  min-width: 140px;
+  font-weight: 700;
+  font-size: 25px;
+  color: #8071ff;
+  text-shadow: 0 0 6px #00dfff;
+  user-select: none;
+}
+
+.form-section select {
+  margin-right: 1rem;
+}
+
+.recommendation-form input[type="text"],
+.recommendation-form select {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid #00f0ff;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.4);
+  color: #e0f7fa;
+  font-size: 1rem;
+  font-family: "Inter", sans-serif;
+  box-shadow: 0 0 8px #00f0ff44, inset 0 0 5px #00f0ffaa;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease,
+    background-color 0.3s ease;
+  min-width: 0; /* fix flex shrinking in small devices */
+}
+
+.recommendation-form input[type="text"]::placeholder,
+.recommendation-form select::placeholder {
+  color: #00ffffcc;
+  font-size: 1rem;
+}
+
+.recommendation-form input[type="text"]:focus,
+.recommendation-form select:focus {
+  outline: none;
+  border-color: #00ffff;
+  box-shadow: 0 0 10px #00ffffcc, inset 0 0 10px #00ffffcc;
+  background: rgba(0, 0, 0, 0.6);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button-row {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.recommendation-form button {
+  flex: 1 1 150px;
+  padding: 0.8rem 1.5rem;
+  font-weight: 700;
+  font-size: 1.15rem;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  background: linear-gradient(145deg, #00eaff, #0099cc);
+  color: #001f26;
+  font-family: "Orbitron", sans-serif;
+  text-transform: uppercase;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 15px #00f0ff88, inset 0 0 8px #00caffcc;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.2s ease, outline 0.2s ease;
+  min-width: 0; /* allow flex shrink */
+}
+
+.recommendation-form button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at center, #00ffff44 10%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 16px;
+}
+
+.recommendation-form button:hover::after {
+  opacity: 1;
+}
+
+.recommendation-form button:hover {
+  background: linear-gradient(145deg, #00ffff, #00ccff);
+  box-shadow: 0 0 25px #00ffffcc, inset 0 0 15px #00ccffcc;
+  transform: translateY(-2px);
+}
+
+.recommendation-form button:active {
+  transform: translateY(1px);
+  box-shadow: 0 0 15px #00b8cc88, inset 0 0 10px #007799cc;
+}
+
+/* Accessibility: focus ring */
+.recommendation-form button:focus {
+  outline: 2px solid #00ffffaa;
+  outline-offset: 3px;
+  box-shadow: 0 0 18px #00ffffaa, inset 0 0 8px #00caffaa;
+}
+
+/* Selected state - use via JS: className="selected" */
+.recommendation-form button.selected {
+  border: 2px solid #ffffff99;
+  box-shadow: 0 0 30px #ffffffaa, inset 0 0 12px #00ffffaa;
+  transform: scale(1.03);
+}
+
+.recommendation-form button[type="submit"] {
+  background: linear-gradient(135deg, #00f0ff, #00c3ff);
+  color: #001e26;
+  box-shadow: 0 0 18px #00e0ffcc, inset 0 0 10px #00aaffcc;
+}
+
+.recommendation-form button[type="submit"]:hover:not(:disabled) {
+  background: linear-gradient(135deg, #00ffff, #00aaff);
+  box-shadow: 0 0 25px #00ffffcc, inset 0 0 15px #00aaffcc;
+}
+
+.recommendation-form button[type="submit"]:disabled {
+  background-color: #004a5a;
+  color: #005f73;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.recommendation-form button[type="button"] {
+  background: linear-gradient(135deg, #ff0055, #cc0033);
+  color: #ffeeee;
+  box-shadow: 0 0 18px #ff3366cc, inset 0 0 10px #cc0033cc;
+}
+
+.recommendation-form button[type="button"]:hover {
+  background: linear-gradient(135deg, #ff3366, #ff1a44);
+  box-shadow: 0 0 25px #ff3366cc, inset 0 0 15px #ff1a44cc;
+}
+
+.input-error {
+  border-color: #ff3366 !important;
+  box-shadow: 0 0 12px #ff3366cc, inset 0 0 8px #ff3366cc !important;
+}
+
+.error-msg {
+  color: #ff3366;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-top: -0.6rem;
+  margin-bottom: 1.2rem;
+  text-shadow: 0 0 6px #ff3366aa;
+  user-select: none;
+}
+
+.recommendation-list {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.favorites-section {
+  margin-top: 3.5rem;
+  padding: 2rem;
+  background: rgba(10, 25, 30, 0.7);
+  border-radius: 16px;
+  border-top: 3px solid #00eaff;
+  box-shadow: 0 0 20px #00eaff99 inset;
+  color: #00eaff;
+  text-align: center;
+  font-family: "Orbitron", sans-serif;
+  user-select: none;
+}
+
+.favorites-section h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #00dfff;
+  text-shadow: 0 0 8px #00dfff;
+}
+
+.favorite-msg {
+  margin: 10px 0;
+  padding: 10px 14px;
+  background-color: rgba(0, 255, 0, 0.15);
+  border: 1px solid #00ff00;
+  border-radius: 6px;
+  color: #00ff00;
+  font-weight: 700;
+  text-align: center;
+  text-shadow: 0 0 6px #00ff00aa;
+  user-select: none;
+}
+
+.spinner {
+  margin: 2rem auto;
+  border: 4px solid rgba(0, 255, 255, 0.15);
+  border-top: 4px solid #00f0ff;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive tweaks for mobile and tablet */
+@media (max-width: 900px) {
+  .recommendation-form-container {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .form-section label {
+    min-width: 100%;
+    margin-bottom: 0.3rem;
+    font-size: 22px;
+  }
+  .recommendation-form button {
+    flex: 1 1 100%;
+  }
+  .recommendation-form input[type="text"],
+  .recommendation-form select {
+    font-size: 1rem;
+    padding: 0.7rem 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .form-section label {
+    font-size: 20px;
+  }
+  .form-heading {
+    font-size: 2rem;
+  }
+  .recommendation-form button {
+    font-size: 1.05rem;
+    padding: 0.7rem 1rem;
+  }
+}

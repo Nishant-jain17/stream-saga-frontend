@@ -1,0 +1,90 @@
+.footer {
+  background: rgba(10, 10, 25, 0.8);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-top: 2px solid #ff00ff;
+  box-shadow: 0 -2px 10px #ff00ffcc, inset 0 0 20px #ff00ff55;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  font-family: "Orbitron", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #ff66ff;
+  user-select: none;
+  position: relative;
+  z-index: 10;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease, color 0.4s ease;
+}
+
+/* Neon glow on hover */
+.footer:hover {
+  background: rgba(15, 15, 35, 0.95);
+  box-shadow: 0 -4px 20px #ff33ffdd, inset 0 0 30px #ff33ff88;
+  color: #ff99ff;
+}
+
+/* Footer text */
+.footer p {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1rem;
+  text-shadow: 0 0 6px #ff66ff, 0 0 12px #ff33ffaa;
+  letter-spacing: 0.5px;
+}
+
+/* Footer nav container with spacing */
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem; /* spacing between links */
+  margin-top: 0.5rem;
+  flex-wrap: wrap; /* wrap on small widths */
+}
+
+/* Links inside footer */
+.footer a {
+  color: #ff99ff;
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  min-width: 48px; /* better tap target */
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.footer a:hover,
+.footer a:focus-visible {
+  color: #ff00ff;
+  text-shadow: 0 0 8px #ff00ff, 0 0 15px #ff00ffaa;
+  outline: none;
+  background: rgba(255, 0, 255, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .footer {
+    padding: 1rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  /* Stack links vertically with spacing */
+  .footer-nav {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .footer a {
+    min-width: unset;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 375px) {
+  .footer {
+    padding: 0.8rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .footer p {
+    font-size: 0.9rem;
+  }
+}

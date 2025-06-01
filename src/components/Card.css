@@ -1,0 +1,208 @@
+.card {
+  background: rgba(20, 20, 40, 0.7);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 16px;
+  box-shadow: 0 0 15px 2px #00ffe7aa, inset 0 0 20px #00d8d8aa;
+  color: #a3f7ff;
+  font-family: "Orbitron", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  user-select: none;
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 0 25px 5px #00fffccc, inset 0 0 30px #00ffffcc;
+  outline: none;
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  transition: filter 0.3s ease;
+}
+
+.card:hover img,
+.card:focus-within img {
+  filter: brightness(1.1) saturate(1.2);
+}
+
+.card-content {
+  flex: 1;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #00ffe7;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 6px #00fffccc;
+  letter-spacing: 0.05em;
+  word-break: break-word;
+}
+
+.card-description {
+  font-size: 1rem;
+  color: #b0f0ffcc;
+  line-height: 1.4;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 3.5em;
+  word-break: break-word;
+}
+
+.card-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 10px;
+}
+
+.card-actions button {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  background-color: #00e5ff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  color: #003844;
+  cursor: pointer;
+  box-shadow: 0 0 8px #00fff7cc;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.card-actions button:hover,
+.card-actions button:focus-visible {
+  background-color: #00fff7;
+  box-shadow: 0 0 15px #00ffffee;
+  outline: none;
+}
+
+.card-loading-spinner {
+  margin: 1.5rem auto;
+  border: 3px solid rgba(0, 255, 255, 0.15);
+  border-top: 3px solid #00fff7;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Favorite Button Improvements */
+.favorite-btn {
+  margin-top: 1rem;
+  align-self: flex-start;
+  font-size: 1.2rem;
+  padding: 0.5rem 0.8rem;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #00e5ff, #00bcd4);
+  color: #003844;
+  box-shadow: 0 0 12px #00ffe7aa, 0 0 6px #00fff755 inset;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.favorite-btn:hover,
+.favorite-btn:focus-visible {
+  background: linear-gradient(145deg, #00fff7, #00e5ff);
+  box-shadow: 0 0 20px #00fff7cc, inset 0 0 10px #00fff7aa;
+  outline: none;
+  transform: scale(1.1);
+}
+
+.favorite-btn.favorited {
+  background: linear-gradient(145deg, #ff4081, #f50057);
+  color: white;
+  box-shadow: 0 0 14px #ff4081cc, inset 0 0 10px #f50057aa;
+}
+
+.favorite-btn.favorited:hover {
+  background: linear-gradient(145deg, #ff80ab, #ff4081);
+  box-shadow: 0 0 20px #ff4081dd, inset 0 0 12px #ff4081cc;
+  transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .card img {
+    height: 160px;
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+  }
+
+  .card-description {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .card img {
+    height: 140px;
+  }
+
+  .card-title {
+    font-size: 1.1rem;
+  }
+
+  .card-description {
+    font-size: 0.9rem;
+  }
+
+  .card-actions button {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .favorite-btn {
+    font-size: 1.1rem;
+    padding: 0.4rem 0.7rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .card img {
+    height: 120px;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .card-description {
+    font-size: 0.85rem;
+  }
+
+  .card-actions button {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.7rem;
+  }
+
+  .favorite-btn {
+    font-size: 1rem;
+    padding: 0.35rem 0.6rem;
+  }
+}

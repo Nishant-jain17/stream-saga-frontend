@@ -1,0 +1,272 @@
+/* Home layout */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap");
+
+.home,
+.home-page {
+  padding: 2rem;
+  background: linear-gradient(135deg, #0d0d21, #1a1a3d);
+  min-height: 100vh;
+  font-family: "Orbitron", monospace, sans-serif;
+  color: #cbd5e1;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Subtle animated gradient background */
+.home-page::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at center, #0ff, transparent 60%);
+  opacity: 0.15;
+  pointer-events: none;
+  animation: pulseGlow 8s ease-in-out infinite;
+  z-index: 0;
+}
+
+/* Section titles */
+.section-title,
+.section-heading {
+  font-size: 1.8rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #00ffff;
+  font-weight: 700;
+  text-shadow: 0 0 8px #00ffffaa;
+  border-left: 6px solid #0ff;
+  padding-left: 12px;
+  letter-spacing: 1px;
+  z-index: 1;
+  position: relative;
+}
+
+.section-heading {
+  color: #0ff;
+}
+
+/* Grid layout (responsive cards) */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+  z-index: 1;
+}
+
+/* Horizontal scroll layout */
+.home-preview-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  gap: 1rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  z-index: 1;
+  scrollbar-width: thin;
+  scrollbar-color: #00ffff55 transparent;
+}
+
+.home-preview-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.home-preview-grid::-webkit-scrollbar-thumb {
+  background-color: #00ffffbb;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.home-preview-grid::-webkit-scrollbar-thumb:hover {
+  background-color: #00ffffee;
+}
+
+.home-preview-grid > * {
+  flex: 0 0 250px;
+  scroll-snap-align: start;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+  will-change: transform;
+}
+
+.home-preview-grid > *:hover,
+.home-preview-grid > *:focus-within {
+  transform: scale(1.06);
+  box-shadow: 0 0 12px #00fff7, 0 0 20px #00fff7aa, 0 0 30px #00fff7cc;
+  z-index: 2;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Buttons */
+.cta-button,
+.show-more-btn,
+.load-more-btn {
+  display: block;
+  margin: 3rem auto 1rem;
+  padding: 0.85rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  color: #0d0d21;
+  background: linear-gradient(45deg, #0ff, #00cccc);
+  box-shadow: 0 0 12px #0ff, 0 0 25px #00cccc;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  user-select: none;
+}
+
+.cta-button::before,
+.show-more-btn::before,
+.load-more-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -150%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+  transform: skewX(-25deg) translateX(0);
+  transition: transform 0.7s ease;
+  z-index: 0;
+}
+
+.cta-button:hover::before,
+.show-more-btn:hover::before,
+.load-more-btn:hover::before {
+  transform: skewX(-25deg) translateX(150%);
+}
+
+.cta-button:hover,
+.show-more-btn:hover,
+.load-more-btn:hover {
+  background: linear-gradient(45deg, #00ffffcc, #008080);
+  box-shadow: 0 0 25px #0ff, 0 0 40px #00cccc;
+  color: #e0f7fa;
+  outline: none;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  border: 4px solid rgba(0, 255, 255, 0.15);
+  border-top: 4px solid #00ffff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 2rem auto;
+}
+
+/* Animations */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* Responsive */
+
+/* Medium devices/tablets (iPad Mini landscape, Galaxy S20) */
+@media (max-width: 1024px) {
+  .section-heading {
+    font-size: 1.5rem;
+  }
+
+  .show-more-btn,
+  .load-more-btn,
+  .cta-button {
+    font-size: 1.05rem;
+    padding: 0.8rem 2.2rem;
+  }
+
+  .home-preview-grid > * {
+    flex: 0 0 220px;
+  }
+}
+
+/* Small devices (iPhone XR, 12 Pro, Galaxy S8+) */
+@media (max-width: 768px) {
+  .section-heading {
+    font-size: 1.4rem;
+  }
+
+  .show-more-btn,
+  .load-more-btn,
+  .cta-button {
+    font-size: 1rem;
+    padding: 0.7rem 1.8rem;
+  }
+
+  .home-preview-grid > * {
+    flex: 0 0 200px;
+  }
+}
+
+/* Extra small devices (iPhone SE) */
+@media (max-width: 375px) {
+  .section-heading {
+    font-size: 1.2rem;
+  }
+
+  .show-more-btn,
+  .load-more-btn,
+  .cta-button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.5rem;
+  }
+
+  .home-preview-grid > * {
+    flex: 0 0 160px;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+}
+
+/* Large devices (iPhone 14 Pro Max) */
+@media (min-width: 1280px) {
+  .section-heading {
+    font-size: 2rem;
+  }
+
+  .show-more-btn,
+  .load-more-btn,
+  .cta-button {
+    font-size: 1.2rem;
+    padding: 1rem 3rem;
+  }
+
+  .home-preview-grid > * {
+    flex: 0 0 280px;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
